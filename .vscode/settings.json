@@ -1,0 +1,26 @@
+{
+    "python.linting.enabled": true,
+    "python.languageServer": "Pylance",
+    "python.analysis.typeCheckingMode": "standard",
+    "python.analysis.diagnosticSeverityOverrides": {
+        "reportMissingModuleSource": "none"
+    },
+    "python.analysis.autoSearchPaths": false,
+    "python.analysis.typeshedPaths": [
+        "tools/typings"
+    ],
+    "python.analysis.extraPaths": [
+        "src",
+        "lib",
+        "tools/typings",
+        "tools/typings/stdlib"
+    ],
+    "editor.formatOnSave": true,
+    "[python]": {
+        "editor.defaultFormatter": "charliermarsh.ruff"
+    },
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "plantuml.server": "https://plantuml.sw.pi.planetinnovation.com.au/",
+    "plantuml.render": "PlantUMLServer",
+}

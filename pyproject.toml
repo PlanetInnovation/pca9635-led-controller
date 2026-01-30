@@ -1,0 +1,173 @@
+[project]
+name = "micropython_pca9635"
+version = "0.1.0"
+requires-python = ">=3.10"
+
+[project.optional-dependencies]
+dev = [
+    "mypy>=1.18.0",
+    "pre-commit",
+    "git-versioner",
+    "robotframework",
+    "robotframework-lint",
+    "pyhy",
+]
+
+[tool.ruff]
+# Same as MicroPython configuration
+line-length = 99
+
+# Assume Python 3.10
+target-version = "py310"
+
+# MicroPython-specific builtins
+builtins = ["const"]
+
+# Exclude a variety of commonly ignored directories
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".hg",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "venv",
+    "tools/typings",
+]
+
+[tool.ruff.lint]
+# Enable pycodestyle (`E`) and Pyflakes (`F`) codes by default
+select = ["E", "F"]
+ignore = []
+
+# Allow unused variables when underscore-prefixed
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+# Avoid automatically removing unused imports in __init__.py files
+ignore-init-module-imports = true
+
+typing-modules = ["micropython-stm32-stubs"]
+
+[tool.ruff.lint.mccabe]
+# Unlike Flake8, default to a complexity level of 10
+max-complexity = 10
+
+[tool.ruff.lint.per-file-ignores]
+"manifest.py" = ["F821"]  # "Undefined name" for eg. freeze, include, etc.
+
+[tool.ruff.format]
+# Use double quotes for strings
+quote-style = "double"
+
+# Indent with spaces
+indent-style = "space"
+
+# Respect magic trailing commas
+skip-magic-trailing-comma = false
+
+# Automatically detect line ending
+line-ending = "auto"
+
+[tool.mypy]
+# Usage of micropython stubs with mypy and Pyright from:
+# https://micropython-stubs.readthedocs.io/en/main/pyproject.html#pyproject-config
+
+# Allow | and other newer syntax in typing.
+python_version = "3.10"
+
+# Paths for libraries and stubs (simpler structure for library template)
+# Should be kept in sync with extraPaths below
+# When new library / submodules are added to the project, add them here
+mypy_path = [
+    "lib",
+]
+
+# To configure according to desired level of error checking:
+# Don't check imported (stub) modules.
+follow_imports_for_stubs = false
+follow_imports = "silent"
+check_untyped_defs = true
+no_site_packages = true
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+# Ignore mypy errors in typing stubs.
+module = [
+    '_mpy_shed.*',
+    'array',
+    'asyncio.*',
+    'collections',
+    'hashlib',
+    'io',
+    'json',
+    'machine',
+    'manifest',
+    'math',
+    'os',
+    'pyb',
+    're',
+    'socket',
+    'sre_compile',
+    'sre_constants',
+    'sre_parse',
+    'ssl',
+    'stdlib.array',
+    'stdlib.collections.*',
+    'stdlib.io',
+    'stdlib.json.*',
+    'stdlib.os.path',
+    'stdlib.os',
+    'stdlib.re',
+    'stdlib.sre_compile',
+    'stdlib.sre_constants',
+    'stdlib.sre_parse',
+    'stdlib.ssl',
+    'stdlib.sys.*',
+    'stdlib.typing',
+    'sys',
+    'typing',
+    'uasyncio.*',
+    'uio',
+    'uos',
+    'usocket',
+]
+ignore_errors = true
+
+[tool.pyright]
+include = [
+    "src/**",
+    "micropython_pca9635/**"
+]
+ignore = ["**/tools/typings"]
+exclude = [".*", "__pycache__", "**/tools/typings"]
+
+typeCheckingMode = "standard"
+pythonPlatform = "Linux"
+pythonVersion = "3.10"
+
+reportMissingModuleSource = "none"
+reportUnnecessaryTypeIgnoreComment = "information"
+reportUnknownArgumentType = "error"
+
+executionEnvironments = [
+  { root = "micropython_pca9635", pythonVersion = "3.10", pythonPlatform = "Linux"},
+]
+
+# Paths for libraries and stubs
+# Should be kept in sync with mypy_path above
+extraPaths = [
+    "lib",
+]

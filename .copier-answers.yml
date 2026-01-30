@@ -1,0 +1,8 @@
+# Changes here will be overwritten by Copier
+_commit: v0.1-16-g299edf9
+_src_path: git@gitlab.pi.planetinnovation.com.au:degraves/template/micropython_library_template.git
+gitlab_tag: aws-525-degraves
+library_description: MicroPython driver for PCA9635 16-channel I2C LED controller
+    with PWM
+library_name: micropython_pca9635
+single_file_module: true
