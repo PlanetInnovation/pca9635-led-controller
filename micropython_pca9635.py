@@ -1,18 +1,7 @@
-# -*- coding: utf-8 -*-
-# !/usr/bin/env python
+# MIT license; Copyright (c) 2020, Planet Innovation
+# 436 Elgar Road, Box Hill, 3128, VIC, Australia
+# Phone: +61 3 9945 7510
 #
-#   Copyright (c) 2020, Planet Innovation
-#   436 Elgar Road, Box Hill VIC 3128 Australia
-#   Phone: +61 3 9945 7510
-#
-#   The copyright to the computer program(s) herein is the property of
-#   Planet Innovation, Australia.
-#   The program(s) may be used and/or copied only with the written permission
-#   of Planet Innovation or in accordance with the terms and conditions
-#   stipulated in the agreement/contract under which the program(s) have been
-#   supplied.
-#
-#   @file driver for PCA9635
 
 """A MicroPython driver for the PCA9635 LED controller.
 

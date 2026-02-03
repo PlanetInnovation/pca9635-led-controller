@@ -1,0 +1,6 @@
+{
+    "urls": [
+        ["micropython_pca9635.py", "github:planetinnovation/micropython-pca9635/micropython_pca9635.py"]
+    ],
+    "version": "1.0.0"
+}
